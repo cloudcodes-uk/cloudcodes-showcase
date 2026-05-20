@@ -22,9 +22,11 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="font-mono font-bold text-primary-foreground text-sm">&lt;/&gt;</span>
-            </div>
+            <img
+              src="/logo.png"
+              alt="CloudCodes Logo"
+              className="w-12 h-8 rounded-lg object-cover"
+            />
             <span className="font-bold text-xl text-foreground group-hover:text-primary transition-colors">
               CloudCodes
             </span>
