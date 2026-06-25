@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
+import { UpworkIcon } from "./ui/upwork-icon";
 
 const Footer = () => {
   return (
@@ -31,22 +32,19 @@ const Footer = () => {
             </a>
           </Button>
         </motion.div>
-
         <div className="border-t border-border pt-12">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="font-mono font-bold text-primary-foreground text-sm">&lt;/&gt;</span>
-              </div>
+              <img src="/logo.png" alt="CloudCodes Logo" className="w-8 h-8 object-contain" />
               <span className="font-bold text-xl">CloudCodes</span>
             </div>
 
-            <div className="flex gap-6">
+            <div className="flex items-center gap-6">
               <a
                 href="https://github.com/cloudcodes"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors flex items-center justify-center"
                 aria-label="GitHub"
               >
                 <Github className="w-6 h-6" />
@@ -55,19 +53,20 @@ const Footer = () => {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors flex items-center justify-center"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-6 h-6" />
               </a>
+
               <a
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Twitter"
+                className="text-muted-foreground hover:text-primary transition-colors flex items-center justify-center"
+                aria-label="Upwork"
               >
-                <Twitter className="w-6 h-6" />
+                <UpworkIcon className="h-4 w-auto" />
               </a>
             </div>
 

@@ -1,44 +1,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Twitter } from "lucide-react";
 
-const team = [
-  {
-    name: "Alex Johnson",
-    role: "Founder & Lead Developer",
-    bio: "Full-stack developer with 8+ years of experience building scalable web applications.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face",
-    github: "#",
-    linkedin: "#",
-    twitter: "#",
-  },
-  {
-    name: "Sarah Chen",
-    role: "Frontend Architect",
-    bio: "React specialist passionate about creating beautiful, accessible user interfaces.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop&crop=face",
-    github: "#",
-    linkedin: "#",
-    twitter: "#",
-  },
-  {
-    name: "Marcus Williams",
-    role: "Backend Engineer",
-    bio: "Node.js expert focused on building robust APIs and microservices architectures.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face",
-    github: "#",
-    linkedin: "#",
-    twitter: "#",
-  },
-  {
-    name: "Emily Rodriguez",
-    role: "UI/UX Designer",
-    bio: "Design enthusiast crafting intuitive experiences that users love.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face",
-    github: "#",
-    linkedin: "#",
-    twitter: "#",
-  },
-];
+import { team } from "@/dynamic/team/team";
 
 const container = {
   hidden: { opacity: 0 },
@@ -56,6 +19,11 @@ const item = {
 };
 
 const Team = () => {
+  // Configurable zoom/scale variables (values can be percentages or decimals, e.g., '100%' or '1')
+  // To zoom out on hover, make hoverScale smaller than baseScale.
+  const baseScale = "100%";
+  const hoverScale = "110%";
+
   return (
     <section id="team" className="py-24 bg-card relative">
       {/* Background accent */}
@@ -82,13 +50,13 @@ const Team = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          className="flex flex-wrap justify-center gap-8 lg:gap-12"
         >
           {team.map((member) => (
             <motion.div
               key={member.name}
               variants={item}
-              className="group text-center"
+              className="group text-center w-full sm:w-[calc(50%-1rem)] lg:w-[280px]"
             >
               <div className="relative mb-6 mx-auto w-48 h-48">
                 <div className="absolute inset-0 rounded-full bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -96,7 +64,11 @@ const Team = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="w-full h-full object-cover transition-transform duration-500 scale-[var(--base-scale)] group-hover:scale-[var(--hover-scale)]"
+                    style={{
+                      "--base-scale": baseScale,
+                      "--hover-scale": hoverScale,
+                    } as React.CSSProperties}
                   />
                 </div>
               </div>
@@ -125,14 +97,6 @@ const Team = () => {
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Linkedin className="w-5 h-5" />
-                </a>
-                <a
-                  href={member.twitter}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted-foreground hover:text-primary transition-colors"
-                >
-                  <Twitter className="w-5 h-5" />
                 </a>
               </div>
             </motion.div>
