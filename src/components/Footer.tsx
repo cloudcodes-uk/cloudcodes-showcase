@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { UpworkIcon } from "./ui/upwork-icon";
+import { cloudcodes } from "@/dynamic/cloudcodes/cloudcodes";
 
 const Footer = () => {
   return (
@@ -41,7 +42,7 @@ const Footer = () => {
 
             <div className="flex items-center gap-6">
               <a
-                href="https://github.com/cloudcodes"
+                href={cloudcodes.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors flex items-center justify-center"

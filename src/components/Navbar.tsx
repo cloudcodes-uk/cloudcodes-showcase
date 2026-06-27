@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Github, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "./ui/button";
+import { cloudcodes } from "@/dynamic/cloudcodes/cloudcodes";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,7 +45,7 @@ const Navbar = () => {
               </a>
             ))}
             <Button variant="heroOutline" size="sm" asChild>
-              <a href="https://github.com/cloudcodes" target="_blank" rel="noopener noreferrer">
+              <a href={cloudcodes.social.github} target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
@@ -78,7 +79,7 @@ const Navbar = () => {
               </a>
             ))}
             <Button variant="heroOutline" size="sm" className="w-full" asChild>
-              <a href="https://github.com/cloudcodes" target="_blank" rel="noopener noreferrer">
+              <a href={cloudcodes.social.github} target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
