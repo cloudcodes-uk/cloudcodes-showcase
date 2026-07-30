@@ -14,7 +14,7 @@ const Footer = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const mailtoLink = `mailto:hello@cloudcodes.uk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
+    const mailtoLink = `mailto:${cloudcodes.social.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(
       `From: ${email}\n\n${message}`
     )}`;
     window.location.href = mailtoLink;
