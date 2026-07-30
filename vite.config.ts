@@ -2,10 +2,23 @@ import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { z } from "zod";
+import { envSchema } from "./src/lib/env.schema";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
+  
+  try {
+    envSchema.parse(env);
+  } catch (error) {
+    if (error instanceof z.ZodError) {
+      console.error("❌ Invalid environment variables:");
+      error.errors.forEach((e) => console.error(`  - ${e.path.join(".")}: ${e.message}`));
+      process.exit(1);
+    }
+  }
+
   const port = Number(process.env.PORT || env.PORT) || 1234;
 
   return {
