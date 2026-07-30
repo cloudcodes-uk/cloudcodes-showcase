@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, Globe } from "lucide-react";
 import { Button } from "./ui/button";
 import { projects } from "../dynamic/projects/projects";
+import { getProjectImage } from "../dynamic/projects/getProjectImage";
 
 const container = {
   hidden: { opacity: 0 },
@@ -52,7 +53,7 @@ const Projects = () => {
             >
               <div className="aspect-video overflow-hidden">
                 <img
-                  src={project.image}
+                  src={getProjectImage(project.image, project.live)}
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 />
@@ -79,19 +80,21 @@ const Projects = () => {
                 </div>
 
                 {/* Always visible on mobile (no hover), hover-reveal on desktop */}
-                <div className="flex gap-2 sm:gap-3 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
+                <div className="flex flex-wrap gap-2 sm:gap-3 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                   <Button variant="hero" size="sm" className="text-xs sm:text-sm h-8 sm:h-9" asChild>
                     <a href={project.live} target="_blank" rel="noopener noreferrer">
                       <Globe className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       Live Demo
                     </a>
                   </Button>
-                  <Button variant="heroOutline" size="sm" className="text-xs sm:text-sm h-8 sm:h-9" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      Code
-                    </a>
-                  </Button>
+                  {project.github.map((repo) => (
+                    <Button key={repo.label} variant="heroOutline" size="sm" className="text-xs sm:text-sm h-8 sm:h-9" asChild>
+                      <a href={repo.url} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        {repo.label}
+                      </a>
+                    </Button>
+                  ))}
                 </div>
               </div>
             </motion.div>
