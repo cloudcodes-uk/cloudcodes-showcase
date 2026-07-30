@@ -1,41 +1,7 @@
 import { motion } from "framer-motion";
 import { ExternalLink, Github, Globe } from "lucide-react";
 import { Button } from "./ui/button";
-
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    description: "A modern, scalable e-commerce solution built with React and Node.js. Features real-time inventory, secure payments, and beautiful UI.",
-    tags: ["React", "Node.js", "Stripe", "MongoDB"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Task Management App",
-    description: "Collaborative project management tool with real-time updates, team chat, and advanced analytics dashboard.",
-    tags: ["TypeScript", "Next.js", "PostgreSQL", "Socket.io"],
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop",
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "AI Content Generator",
-    description: "Leveraging GPT technology to create engaging content. Includes SEO optimization and multi-language support.",
-    tags: ["Python", "FastAPI", "OpenAI", "React"],
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-    github: "#",
-    live: "#",
-  },
-  {
-    title: "Fitness Tracking App",
-    description: "Mobile-first fitness companion with workout plans, progress tracking, and social challenges.",
-    tags: ["React Native", "Firebase", "Charts", "PWA"],
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=400&fit=crop",
-    github: "#",
-    live: "#",
-  },
-];
+import { projects } from "../dynamic/projects/projects";
 
 const container = {
   hidden: { opacity: 0 },
