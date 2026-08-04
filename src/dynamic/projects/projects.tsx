@@ -1,4 +1,8 @@
-import { IProject } from "./IProject";
+import { IProject, UnifiedProject, unifiedToIProject } from "./IProject";
+import { fetchGithubProjects, formatProjectTitle } from "./fetchGithubProjects";
+
+export { fetchGithubProjects, formatProjectTitle, unifiedToIProject };
+export type { UnifiedProject };
 
 export const projects: IProject[] = [
   {
@@ -30,3 +34,4 @@ export const projects: IProject[] = [
     live: "https://stackpay.cloudcodes.uk",
   },
 ];
+

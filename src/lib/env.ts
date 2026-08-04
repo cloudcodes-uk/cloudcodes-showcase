@@ -7,6 +7,8 @@ try {
   parsedEnv = envSchema.parse({
     VITE_FORMSPREE_ENDPOINT: import.meta.env.VITE_FORMSPREE_ENDPOINT,
     VITE_PORT: import.meta.env.VITE_PORT,
+    VITE_GITHUB_USERNAME: import.meta.env.VITE_GITHUB_USERNAME,
+    VITE_GITHUB_TOKEN: import.meta.env.VITE_GITHUB_TOKEN,
   });
 } catch (error) {
   if (error instanceof z.ZodError) {
