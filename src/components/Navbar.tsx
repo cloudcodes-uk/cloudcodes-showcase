@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Github, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
+import { ThemeToggle } from "./ThemeToggle";
 import { cloudcodes } from "@/dynamic/cloudcodes/cloudcodes";
 
 const Navbar = () => {
@@ -56,6 +57,7 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
+            <ThemeToggle />
             <Button variant="heroOutline" size="sm" asChild>
               <a href={cloudcodes.social.github} target="_blank" rel="noopener noreferrer">
                 <Github className="w-4 h-4" />
@@ -64,14 +66,17 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground p-1.5 rounded-lg hover:bg-secondary/50 transition-colors"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label={isOpen ? "Close menu" : "Open menu"}
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Actions: ThemeToggle + Hamburger Menu Button */}
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button
+              className="text-foreground p-1.5 rounded-lg hover:bg-secondary/50 transition-colors"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "Close menu" : "Open menu"}
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation — slides down with AnimatePresence */}
